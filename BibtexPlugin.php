@@ -47,7 +47,8 @@ class BibtexPlugin extends Omeka_Plugin_AbstractPlugin
     public function filterActionContexts($contexts, $args)
     {
         if($args['controller'] instanceof ItemsController) {
-            $contexts['show'][] = 'bibtex';
+            $contexts['show'][]     = 'bibtex';
+            $contexts['browse'][]   = 'bibtex';
         }
         return $contexts;
     }
