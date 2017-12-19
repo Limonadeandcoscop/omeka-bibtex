@@ -23,11 +23,11 @@ foreach ($elements as $elementSetName => $elementTexts) {
 			if (count($elementsText) > 1) {
 				foreach ($elementsText as $element) {
 					if (strlen(trim($element)))
-						@$values[$bibtexElementName] .= ', '.strip_tags($element);
+						@$values[$bibtexElementName] .= ', '.strip_tags(str_replace('&#039;', "'", $element));
 				}
 			} else {
 				if (strlen(trim(@$elementsText[0])))
-					$values[$bibtexElementName] = strip_tags($elementsText[0]);
+					$values[$bibtexElementName] =  strip_tags(str_replace('&#039;', "'", $elementsText[0]));
 			}
 
 			if (isset($values[$bibtexElementName]))
